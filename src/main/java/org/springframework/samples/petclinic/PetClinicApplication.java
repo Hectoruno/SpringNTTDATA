@@ -21,8 +21,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportRuntimeHints;
-import org.springframework.samples.petclinic.vet.SpecialtyRepository;
-import org.springframework.samples.petclinic.vet.VetRepository;
+import org.springframework.samples.petclinic.model.Specialty;
+import org.springframework.samples.petclinic.model.Vet;
+import org.springframework.samples.petclinic.repository.SpecialtyRepository;
+import org.springframework.samples.petclinic.repository.VetRepository;
 
 /**
  * PetClinic Spring Boot Application.
@@ -37,10 +39,5 @@ public class PetClinicApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PetClinicApplication.class, args);
 	}
-	@Bean
-	public CommandLineRunner demoVetRepository(VetRepository vetRepository, SpecialtyRepository specialtyRepository) {
-		return (args) -> {
-			
-		};
-	}
+
 }

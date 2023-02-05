@@ -13,13 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.vet;
+package org.springframework.samples.petclinic.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.samples.petclinic.model.Vet;
+import org.springframework.samples.petclinic.model.Vets;
+import org.springframework.samples.petclinic.repository.VetRepository;
+import org.springframework.samples.petclinic.service.VetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +41,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 class VetController {
 
 	private final VetRepository vetRepository;
+
+	@Autowired
+	VetService vetService;
 
 	public VetController(VetRepository clinicService) {
 		this.vetRepository = clinicService;
@@ -71,6 +79,7 @@ class VetController {
 	public @ResponseBody Vets showResourcesVetList() {
 		// Here we are returning an object of type 'Vets' rather than a collection of Vet
 		// objects so it is simpler for JSon/Object mapping
+
 		Vets vets = new Vets();
 		vets.getVetList().addAll(this.vetRepository.findAll());
 		return vets;
