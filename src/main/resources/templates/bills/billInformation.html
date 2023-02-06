@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'bills')}">
+
+  <body>
+  
+  
+    <h2>Bill Information</h2>
+  
+  
+    <table class="table table-striped" th:object="${bill}">
+      <tr>
+        <th>ID_NUMBER</th>
+        <td th:text="*{idNumber}"></td>
+      </tr>
+      <tr>
+        <th>Money</th>
+        <td th:text="*{money}"></td>
+      </tr>
+      <tr>
+        <th>Payment</th>
+        <td th:text="*{payment}"></td>
+      </tr>
+    </table>
+  
+    <br />
+  
+  </body>
+</html>

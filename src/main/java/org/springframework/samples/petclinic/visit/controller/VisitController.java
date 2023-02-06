@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.controller;
+package org.springframework.samples.petclinic.visit.controller;
 
 import java.util.Map;
 
+import org.springframework.samples.petclinic.owner.repository.OwnerRepository;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.Visit;
-import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -40,7 +40,7 @@ import jakarta.validation.Valid;
  * @author Dave Syer
  */
 @Controller
-class VisitController {
+public class VisitController {
 
 	private final OwnerRepository owners;
 

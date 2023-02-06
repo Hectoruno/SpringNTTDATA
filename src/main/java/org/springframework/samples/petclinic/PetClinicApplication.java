@@ -21,10 +21,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportRuntimeHints;
+import org.springframework.samples.petclinic.Specialty.repository.SpecialtyRepository;
+import org.springframework.samples.petclinic.bill.repository.BillRepository;
+import org.springframework.samples.petclinic.model.Bill;
 import org.springframework.samples.petclinic.model.Specialty;
 import org.springframework.samples.petclinic.model.Vet;
-import org.springframework.samples.petclinic.repository.SpecialtyRepository;
-import org.springframework.samples.petclinic.repository.VetRepository;
+import org.springframework.samples.petclinic.vet.repository.VetRepository;
+
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 
 /**
  * PetClinic Spring Boot Application.
@@ -34,10 +39,22 @@ import org.springframework.samples.petclinic.repository.VetRepository;
  */
 @SpringBootApplication
 @ImportRuntimeHints(PetClinicRuntimeHints.class)
+//@OpenAPIDefinition(info = @Info(title = "ProductStore API", version = "2.0", description = "ProductStore Information"))
+// @EnableSwagger2
 public class PetClinicApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PetClinicApplication.class, args);
+	}
+	@Bean
+	public CommandLineRunner demoFactRepository(BillRepository bills) {
+		return (args) -> {
+			System.out.println("Bill List: ");
+
+			for(Bill b: bills.findAll()) {
+				System.out.println("Bill: " + b);
+			}
+		};
 	}
 
 }

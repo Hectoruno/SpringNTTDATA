@@ -31,9 +31,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.samples.petclinic.owner.repository.OwnerRepository;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.PetTypeFormatter;
-import org.springframework.samples.petclinic.repository.OwnerRepository;
 
 /**
  * Test class for {@link PetTypeFormatter}
